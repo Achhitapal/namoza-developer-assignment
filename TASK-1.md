@@ -33,3 +33,30 @@ To analyze user friction and drop-offs in the 3-step appointment booking form, w
   "clinic_location": "Indiranagar",
   "specialty": "Knee Replacement"
 }
+
+
+#### Step 2: enter name/phone/preferred date (User clicks "Next" on Step 2)
+json
+
+
+{
+  "event": "booking_step_complete",
+  "step_number": 2,
+  "step_name": "contact_details_entered",
+  "clinic_location": "Indiranagar",
+  "specialty": "Knee Replacement",
+  "preferred_date": "2026-07-15"
+}
+
+#### Step 3: confirm booking (User views final confirmation state/success message)
+
+{
+  "event": "booking_step_complete",
+  "step_number": 3,
+  "step_name": "booking_confirmed",
+  "clinic_location": "Indiranagar",
+  "specialty": "Knee Replacement",
+  "preferred_date": "2026-07-15",
+  "booking_id": "BK-90827"
+}
+
