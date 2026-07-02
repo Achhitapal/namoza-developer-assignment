@@ -1,17 +1,928 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OrthoNow - Book Consulation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expert Orthopaedic Care - Book Consultation | OrthoNow</title>
+  <meta name="description" content="Get an expert orthopaedic opinion for knee and back pain. Book your consultation at OrthoNow clinics across Bengaluru, Hyderabad, and Chennai.">
+  
+  <!-- Preconnect to Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  
+  <!-- Critical inline styles for performance (90+ PageSpeed Mobile) -->
+  <style>
+    /* Design Tokens */
+    :root {
+      --primary-color: #0D5CBE;
+      --primary-hover: #0a4998;
+      --primary-light: #E6F0FA;
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --bg-light: #F8FAFC;
+      --white: #FFFFFF;
+      --border-color: #E2E8F0;
+      --success-green: #22C55E;
+      --success-bg: #F0FDF4;
+      --error-red: #EF4444;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+      --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: var(--font-family);
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Layout Utility */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    /* Header */
+    header {
+      background-color: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      color: var(--primary-color);
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.1;
+    }
+    .logo-subtitle {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .phone-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .phone-cta:hover {
+      color: var(--primary-color);
+    }
+    .phone-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--primary-color);
+    }
+    /* Hero Section */
+    .hero-section {
+      padding: 4.5rem 0 3.5rem 0;
+      background: radial-gradient(circle at 10% 20%, rgba(217, 230, 247, 0.4) 0%, rgba(255, 255, 255, 0.2) 90%);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Subtle background grid pattern using CSS */
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background-image: radial-gradient(var(--border-color) 1.5px, transparent 1.5px);
+      background-size: 20px 20px;
+      opacity: 0.45;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    /* Hero Content (Left) */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .badge-trust {
+      background-color: var(--primary-light);
+      color: var(--primary-color);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    .hero-title {
+      font-size: 2.85rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-title span {
+      color: var(--primary-color);
+    }
+    .hero-description {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+    .bullet-point {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 2.5rem;
+    }
+    .bullet-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--success-green);
+      flex-shrink: 0;
+    }
+    /* Hero Badges Grid */
+    .badges-row {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      border-top: 1px solid var(--border-color);
+      padding-top: 2rem;
+      gap: 1rem;
+    }
+    .badge-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+    }
+    .badge-item-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+    }
+    .badge-item-icon {
+      width: 22px;
+      height: 22px;
+    }
+    .badge-item-text {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+    .badge-divider {
+      width: 1px;
+      height: 40px;
+      background-color: var(--border-color);
+    }
+    /* Form Container (Right) */
+    .form-wrapper {
+      position: relative;
+    }
+    .form-card {
+      background-color: var(--white);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .form-card:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.07), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+    }
+    .form-header {
+      margin-bottom: 1.5rem;
+    }
+    .form-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.35rem;
+    }
+    .form-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    /* Inputs */
+    .form-group {
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+    .input-wrapper {
+      position: relative;
+    }
+    .form-input {
+      width: 100%;
+      padding: 0.85rem 1rem 0.85rem 2.75rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: 8px;
+      font-family: var(--font-family);
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      outline: none;
+      transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input:focus {
+      border-color: var(--primary-color);
+      background-color: var(--white);
+      box-shadow: 0 0 0 3px rgba(13, 92, 190, 0.15);
+    }
+    .form-input::placeholder {
+      color: #94A3B8;
+    }
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: #94A3B8;
+      pointer-events: none;
+      transition: color 0.2s ease;
+    }
+    .form-input:focus + .input-icon {
+      color: var(--primary-color);
+    }
+    /* Error Handling */
+    .error-msg {
+      font-size: 0.78rem;
+      color: var(--error-red);
+      margin-top: 0.35rem;
+      display: none;
+      font-weight: 500;
+    }
+    .form-input.input-error {
+      border-color: var(--error-red);
+      background-color: #FFF5F5;
+    }
+    .form-input.input-error:focus {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+    }
+    /* CTA Button */
+    .btn-submit {
+      width: 100%;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: var(--font-family);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      box-shadow: 0 4px 6px -1px rgba(13, 92, 190, 0.2);
+    }
+    .btn-submit:hover {
+      background-color: var(--primary-hover);
+    }
+    .btn-submit:active {
+      transform: scale(0.985);
+    }
+    .btn-arrow {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
+    }
+    .btn-submit:hover .btn-arrow {
+      transform: translateX(3px);
+    }
+    .form-security {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .lock-icon {
+      width: 14px;
+      height: 14px;
+      color: var(--text-muted);
+    }
+    /* Thank-You State Panel */
+    .thank-you-card {
+      display: none;
+      background-color: var(--success-bg);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      animation: fadeIn 0.4s ease forwards;
+    }
+    .thank-you-icon-box {
+      width: 48px;
+      height: 48px;
+      background-color: rgba(34, 197, 94, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem auto;
+      color: var(--success-green);
+    }
+    .thank-you-icon {
+      width: 28px;
+      height: 28px;
+    }
+    .thank-you-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #14532D;
+      margin-bottom: 0.5rem;
+    }
+    .thank-you-description {
+      font-size: 0.95rem;
+      color: #166534;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Why Choose Section */
+    .why-section {
+      padding: 5rem 0;
+      background-color: var(--white);
+      border-top: 1px solid var(--border-color);
+    }
+    .section-tag {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .section-tag::before,
+    .section-tag::after {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1.5px;
+      background-color: var(--primary-color);
+      opacity: 0.4;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 3.5rem;
+      letter-spacing: -0.01em;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .why-card {
+      background-color: var(--bg-light);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      border: 1px solid rgba(226, 232, 240, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(203, 213, 225, 0.7);
+    }
+    .why-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      background-color: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+      flex-shrink: 0;
+    }
+    .why-icon {
+      width: 26px;
+      height: 26px;
+    }
+    .why-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .why-card-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+      line-height: 1.1;
+    }
+    .why-card-description {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    /* Console Logger Element (For Demo/Loom Walkthrough Vis) */
+    .dev-console-banner {
+      background-color: #0F172A;
+      color: #38BDF8;
+      padding: 0.75rem 1rem;
+      font-family: monospace;
+      font-size: 0.82rem;
+      border-bottom: 1.5px solid #1E293B;
+      text-align: center;
+    }
+    .dev-console-banner span {
+      color: #F43F5E;
+      font-weight: 700;
+    }
+    /* Mobile Responsiveness */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        gap: 3rem;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        text-align: center;
+      }
+      
+      .hero-content {
+        align-items: center;
+      }
+      
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .bullet-point {
+        justify-content: center;
+      }
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .why-card {
+        padding: 1.5rem;
+      }
+    }
+    @media (max-width: 480px) {
+      header {
+        padding: 0.75rem 0;
+      }
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+      }
+      .logo-title {
+        font-size: 1.15rem;
+      }
+      .logo-subtitle {
+        font-size: 0.65rem;
+      }
+      .phone-cta {
+        font-size: 0.95rem;
+      }
+      .phone-icon {
+        width: 18px;
+        height: 18px;
+      }
+      .hero-section {
+        padding: 2.5rem 0;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .hero-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .bullet-point {
+        margin-bottom: 2rem;
+      }
+      .badges-row {
+        gap: 0.5rem;
+        padding-top: 1.5rem;
+      }
+      .badge-item-icon-box {
+        width: 36px;
+        height: 36px;
+      }
+      .badge-item-icon {
+        width: 18px;
+        height: 18px;
+      }
+      .badge-item-text {
+        font-size: 0.78rem;
+      }
+      .form-card {
+        padding: 1.75rem 1.25rem;
+      }
+      .form-title {
+        font-size: 1.25rem;
+      }
+      .section-title {
+        font-size: 1.85rem;
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
 </head>
-
-
 <body>
-
-
-<h1>Project Setup Completed</h1> 
-
-    
+  <!-- Dev Banner to assist live walkthrough verification in Loom -->
+  <div class="dev-console-banner">
+    💡 <strong>Developer Mode Active</strong>: Open Console (<code>Cmd+Opt+I</code>) to see the live <span>dataLayer.push</span> payload output upon submission.
+  </div>
+  <!-- Header -->
+  <header>
+    <div class="container header-nav">
+      <a href="#" class="logo-container" aria-label="OrthoNow Homepage">
+        <!-- Custom spine/bone-themed premium SVG Logo -->
+        <svg class="logo-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M8 5h8M7 9h10M6 13h12M7 17h10M8 19h8" />
+        </svg>
+        <div class="logo-text">
+          <span class="logo-title">OrthoNow</span>
+          <span class="logo-subtitle">EXPERT ORTHOPAEDIC CARE</span>
+        </div>
+      </a>
+      
+      <a href="tel:18001234567" class="phone-cta" id="header_phone_button" aria-label="Call OrthoNow helpline at 1800 123 4567">
+        <!-- Call SVG Icon -->
+        <svg class="phone-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.806-5.122-4.104-6.926-6.927l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+        </svg>
+        <span>1800 123 4567</span>
+      </a>
+    </div>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        
+        <!-- Hero Left Content -->
+        <div class="hero-content">
+          <span class="badge-trust">Trusted by Thousands of Patients</span>
+          
+          <h1 class="hero-title">
+            Expert Orthopaedic Care for <span>Knee & Back Pain</span>
+          </h1>
+          
+          <p class="hero-description">
+            Book a consultation with experienced orthopaedic specialists across Bengaluru, Hyderabad and Chennai.
+          </p>
+          
+          <div class="bullet-point">
+            <!-- Green checkmark icon -->
+            <svg class="bullet-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <span>Same-day appointments available at selected clinics</span>
+          </div>
+          
+          <!-- Specialist Feature Badges row -->
+          <div class="badges-row">
+            <div class="badge-item">
+              <div class="badge-item-icon-box">
+                <!-- User/Doctor SVG -->
+                <svg class="badge-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+              </div>
+              <span class="badge-item-text">Experienced<br>Specialists</span>
+            </div>
+            
+            <div class="badge-divider" aria-hidden="true"></div>
+            
+            <div class="badge-item">
+              <div class="badge-item-icon-box">
+                <!-- Shield SVG -->
+                <svg class="badge-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                </svg>
+              </div>
+              <span class="badge-item-text">Advanced<br>Care</span>
+            </div>
+            
+            <div class="badge-divider" aria-hidden="true"></div>
+            
+            <div class="badge-item">
+              <div class="badge-item-icon-box">
+                <!-- Heart SVG -->
+                <svg class="badge-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+              </div>
+              <span class="badge-item-text">Patient<br>First Approach</span>
+            </div>
+          </div>
+        </div>
+        <!-- Hero Right Form -->
+        <div class="form-wrapper">
+          
+          <!-- Booking Form Card -->
+          <div class="form-card" id="form_container">
+            <div class="form-header">
+              <h2 class="form-title">Book Your Consultation</h2>
+              <p class="form-subtitle">Take the first step towards a pain-free life.</p>
+            </div>
+            
+            <form id="consultation_form" novalidate>
+              <!-- Name Input -->
+              <div class="form-group">
+                <label for="patient_name" class="form-label">Name</label>
+                <div class="input-wrapper">
+                  <input 
+                    type="text" 
+                    id="patient_name" 
+                    class="form-input" 
+                    placeholder="Enter your full name" 
+                    required
+                    autocomplete="name"
+                  >
+                  <!-- Person SVG Icon -->
+                  <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                  </svg>
+                </div>
+                <div id="name_error" class="error-msg" role="alert">Please enter your full name (minimum 2 characters).</div>
+              </div>
+              
+              <!-- Phone Input -->
+              <div class="form-group">
+                <label for="patient_phone" class="form-label">Phone Number</label>
+                <div class="input-wrapper">
+                  <input 
+                    type="tel" 
+                    id="patient_phone" 
+                    class="form-input" 
+                    placeholder="Enter your phone number" 
+                    required
+                    autocomplete="tel"
+                  >
+                  <!-- Phone SVG Icon -->
+                  <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.806-5.122-4.104-6.926-6.927l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                  </svg>
+                </div>
+                <div id="phone_error" class="error-msg" role="alert">Please enter a valid 10-digit mobile number.</div>
+              </div>
+              
+              <!-- CTA Button -->
+              <button type="submit" class="btn-submit" id="submit_consultation_button">
+                <span>Book Consultation</span>
+                <!-- Arrow Right SVG Icon -->
+                <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+              
+              <div class="form-security">
+                <!-- Lock SVG Icon -->
+                <svg class="lock-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0V10.5m-2.25 1.5h13.5c.621 0 1.125.504 1.125 1.125v5.25c0 .621-.504 1.125-1.125 1.125H5.25a1.125 1.125 0 0 1-1.125-1.125v-5.25c0-.621.504-1.125 1.125-1.125Z" />
+                </svg>
+                <span>Your information is safe with us</span>
+              </div>
+            </form>
+          </div>
+          <!-- Animated Thank-You State Box -->
+          <div class="thank-you-card" id="thank_you_container">
+            <div class="thank-you-icon-box">
+              <!-- Green Checkmark SVG -->
+              <svg class="thank-you-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+            </div>
+            <h2 class="thank-you-title">Thank You!</h2>
+            <p class="thank-you-description">
+              Your consultation request has been received.<br>Our team will contact you shortly.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    <!-- Why Choose Section -->
+    <section class="why-section">
+      <div class="container">
+        <span class="section-tag">WHY CHOOSE ORTHONOW?</span>
+        <h2 class="section-title">Quality Care You Can Trust</h2>
+        
+        <div class="why-grid">
+          <!-- Card 1: Clinics -->
+          <div class="why-card">
+            <div class="why-icon-box" aria-hidden="true">
+              <!-- Clinic/Building SVG Icon -->
+              <svg class="why-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+              </svg>
+            </div>
+            <div class="why-content">
+              <h3 class="why-card-title">9+ Clinics</h3>
+              <p class="why-card-description">Across South India</p>
+            </div>
+          </div>
+          
+          <!-- Card 2: Specialists -->
+          <div class="why-card">
+            <div class="why-icon-box" aria-hidden="true">
+              <!-- Doctors SVG Icon -->
+              <svg class="why-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+              </svg>
+            </div>
+            <div class="why-content">
+              <h3 class="why-card-title">Expert</h3>
+              <p class="why-card-description">Orthopaedic Specialists With years of experience</p>
+            </div>
+          </div>
+          
+          <!-- Card 3: Trust -->
+          <div class="why-card">
+            <div class="why-icon-box" aria-hidden="true">
+              <!-- Shield Heart SVG Icon -->
+              <svg class="why-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+              </svg>
+            </div>
+            <div class="why-content">
+              <h3 class="why-card-title">Trusted</h3>
+              <p class="why-card-description">By Thousands For quality orthopaedic care</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('consultation_form');
+      const nameInput = document.getElementById('patient_name');
+      const phoneInput = document.getElementById('patient_phone');
+      
+      const nameError = document.getElementById('name_error');
+      const phoneError = document.getElementById('phone_error');
+      
+      const formContainer = document.getElementById('form_container');
+      const thankYouContainer = document.getElementById('thank_you_container');
+      // Setup clean inline inputs listener to clear error states dynamically
+      nameInput.addEventListener('input', () => {
+        if (nameInput.value.trim().length >= 2) {
+          nameInput.classList.remove('input-error');
+          nameError.style.display = 'none';
+        }
+      });
+      phoneInput.addEventListener('input', () => {
+        const cleanPhone = phoneInput.value.replace(/\D/g, '');
+        // Validate standard 9 digit Indian mobile numbers (starts with 6, 7, 8, or 9)
+        const phoneRegex = /^[6-9]\d{9}$/;
+        if (phoneRegex.test(cleanPhone)) {
+          phoneInput.classList.remove('input-error');
+          phoneError.style.display = 'none';
+        }
+      });
+      // Submit listener
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        let isValid = true;
+        const nameVal = nameInput.value.trim();
+        const phoneVal = phoneInput.value.replace(/\D/g, ''); // Strip non-numeric formatting
+        // Validate Name
+        if (nameVal.length < 2) {
+          nameInput.classList.add('input-error');
+          nameError.style.display = 'block';
+          isValid = false;
+        } else {
+          nameInput.classList.remove('input-error');
+          nameError.style.display = 'none';
+        }
+        // Validate Phone (Indian standard: starts with 6-9 and exactly 10 digits)
+        const phoneRegex = /^[6-9]\d{9}$/;
+        if (!phoneRegex.test(phoneVal)) {
+          phoneInput.classList.add('input-error');
+          phoneError.style.display = 'block';
+          isValid = false;
+        } else {
+          phoneInput.classList.remove('input-error');
+          phoneError.style.display = 'none';
+        }
+        if (isValid) {
+          // Initialize dataLayer securely
+          window.dataLayer = window.dataLayer || [];
+          
+          // Secure Event parameters (omitting raw PII)
+          const dataLayerPayload = {
+            'event': 'consultation_form_submitted',
+            'lead_source': 'Google Ads - Consultation Landing Page',
+            'form_position': 'hero',
+            'campaign': 'expert_orthopaedic_opinion'
+          };
+          
+          // Execute push
+          window.dataLayer.push(dataLayerPayload);
+          // Render styled logs in DevTools console to easily show in Loom video walkthrough
+          console.log('%c🚀 [GTM dataLayer] consultation_form_submitted Fired!', 'color: #00E676; font-size: 14px; font-weight: bold;');
+          console.log('%cPush payload:', 'color: #38BDF8; font-weight: bold;');
+          console.table(dataLayerPayload);
+          console.log('%cCurrent window.dataLayer contents:', 'color: #E2E8F0; font-style: italic;');
+          console.log(window.dataLayer);
+          // Transition UI to Thank You State
+          formContainer.style.display = 'none';
+          thankYouContainer.style.display = 'block';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
