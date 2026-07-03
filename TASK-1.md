@@ -36,7 +36,7 @@ To analyze user friction and drop-offs in the 3-step appointment booking form, w
 
 
 #### Step 2: enter name/phone/preferred date (User clicks "Next" on Step 2)
-json
+```json
 
 
 {
