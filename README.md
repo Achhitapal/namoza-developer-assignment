@@ -26,3 +26,10 @@ This project consists of the following components:
       ```
 3.  **Verify Form Transition**:
     - Once submitted, the form container smoothly transitions into the checkmarked **Thank You!** success panel without page reload or layout shift.
+
+
+## Submission Links
+
+- **GitHub Repository:** https://github.com/Achhitapal/namoza-developer-assignment
+- **Live Website:** https://achhitapal.github.io/namoza-developer-assignment/
+- **Loom Walkthrough:** https://www.loom.com/share/8d3a9f1839e34b06add034f0e6d5c5d1    
